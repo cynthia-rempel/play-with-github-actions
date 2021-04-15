@@ -33,9 +33,11 @@ jobs:
           git clone https://github.com/spacedeck/spacedeck-open.git
           cd spacedeck-open
           npm install
+          npm install -g selenium-side-runner
+          npm install -g chromedriver
 
       # Runs a set of commands using the runners shell
       - name: Run Software
         run: |
           cd spacedeck-open
-          timeout 30 node spacedeck.js
+          timeout --preserve-status 30 node spacedeck.js
